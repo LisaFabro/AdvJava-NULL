@@ -4,25 +4,27 @@ public class Main {
     //Usare la funzione appena scritta in due blocchi di codice dove si cattura l'eventuale eccezione.
     public static void main(String[] args) {
         Double numeratore = Double.valueOf("345");
-        Double denominatore = null;
-
+        Double denominatore = 0.0;
         try{
-            if(numeratore != null){
-                System.out.println("Il tuo numeratore è: " + numeratore);
-            }else{
-                throw new Exception();
-            }
-        }catch(Exception e){
-            System.out.println("Il tuo numeratore é " + e.getMessage() + "!!!");
+            System.out.println(func(numeratore, denominatore));
+        }catch(ArithmeticException e){
+            System.out.println("il denominatore è pari a 0");
+        }catch(Exception e) {
+            System.out.println("Uno dei valori è null ");
         }
         try{
-            if(denominatore != null){
-                System.out.println("Il tuo denominatore è: " + denominatore);
-            }else{
-                throw new Exception();
-            }
+            System.out.println(func(10.0, 12.2));
         }catch(Exception e){
-            System.out.println("Il tuo denominatore é " + e.getMessage() + "!!!");
+            System.out.println("Il tuo denominatore é " + e.getMessage());
+        }
+    }
+    public static Double func(Double num1, Double num2) throws Exception {
+        if (num1 == null || num2 == null) {
+            throw new Exception();
+        } else if(num2 == 0){
+            throw new ArithmeticException();
+    }else{
+            return num1/num2;
         }
     }
 }
