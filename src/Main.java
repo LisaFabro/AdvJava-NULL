@@ -4,7 +4,7 @@ public class Main {
     //Usare la funzione appena scritta in due blocchi di codice dove si cattura l'eventuale eccezione.
     public static void main(String[] args) {
         Double numeratore = Double.valueOf("345");
-        Double denominatore = 0.0;
+        Double denominatore = 0.00;
         try{
             System.out.println(func(numeratore, denominatore));
         }catch(ArithmeticException e){
